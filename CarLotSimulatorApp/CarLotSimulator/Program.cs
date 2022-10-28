@@ -17,17 +17,22 @@ namespace CarLotSimulator
 
             // Set the properties utilizing the 3 different ways we learned about, one way for each car
 
-            var carLot = new CarLot();
+            CarLot carLot = new CarLot();
 
-            var lamborghini = new Car();
-            lamborghini.Make = "Lamborghini";
-            lamborghini.Model = "Miura";
-            lamborghini.Year = 1966;
-            lamborghini.EngineNoise = "Zoom zoom zoom";
-            lamborghini.HonkNoise = "beeeep";
-            lamborghini.IsDrivable = true;
+            Car car1 = new Car();
+            car1.Make = "Lamborghini";
+            car1.Model = "Miura";
+            car1.Year = 1966;
+            car1.EngineNoise = "Zoom zoom zoom";
+            car1.HonkNoise = "beeeep";
+            car1.IsDrivable = true;
 
-            var dodge = new Car()
+            carLot.ParkingLot.Add(car1);
+            Console.WriteLine($"Number of Cars in the lot is: {CarLot.numberOfCars}");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Car car2 = new Car()
             {
                 Make = "Dodge",
                 Model = "Charger",
@@ -36,8 +41,19 @@ namespace CarLotSimulator
                 HonkNoise = "General Lee Dixie horn",
                 IsDrivable = true
             };
+            
+            carLot.ParkingLot.Add(car2);
+            Console.WriteLine($"Number of Cars in the lot is: {CarLot.numberOfCars}");
+            Console.WriteLine();
+            Console.WriteLine();
 
-            Car chevrolet = new Car(1969, "Chevrolet", "Vrooom", "Loud beep", true, "Camaro");
+
+            Car car3 = new Car(1969, "Chevrolet", "Vrooom", "Loud beep", true, "Camaro");
+
+            carLot.ParkingLot.Add(car3);
+            Console.WriteLine($"Number of Cars in the lot is: {CarLot.numberOfCars}");
+            Console.WriteLine();
+            Console.WriteLine();
 
             //*************BONUS X 2*************//
 
@@ -46,7 +62,7 @@ namespace CarLotSimulator
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
 
-            carLot.ParkingLot = new List<Car>() { lamborghini, dodge, chevrolet };
+            carLot.ParkingLot = new List<Car>() { car1, car2, car3 };
 
             foreach (var car in carLot.ParkingLot)
             {
